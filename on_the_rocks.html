@@ -1,3 +1,141 @@
-<script>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+
+</head>
+
+<body style="background-image: linear-gradient(aqua,rgb(66, 26, 151));">
+
+    <div class="card text-center" style="margin: 3rem; background-color: rgb(178, 201, 246);">
+        <div class="card-header display-1" >
+            🧊
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">ON THE ROCKS</h5>
+
+            <p id="questionText">???</p>
+        </div>
+
+        <input id="drawButton" class="btn btn-primary text-center" type="button" value="DRAW" style="background-color: darkblue; margin: 3rem;" />
+
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        const onTheRocks = ["Describe the first time we met. What was your honest first impression of me ?   ",
+            "What’ s the worst thing you’ ve ever had to do at work or school ?   How’ d you handle it ?   ",
+            "If I didn’ t have my currentjob,what do you see me doing ?   ",
+            "What’ s something I do thatyou hate ?   ",
+            "Describe your first real kiss. Then describe your last kiss. ",
+            "Describe your worst bathroom - related disaster ",
+            "Have you ever been fired ?  If so, what for ?   If not, whynot ?   ",
+            "What’ s something you think people should appreciate more about you ?   ",
+            "What movie title describes your last relationship ?   ",
+            "What are your vices ?   Have they gotten better or worseover time ?   ",
+            "What’ s something you miss about your last serious ex ?   ",
+            "Do you think you are happier— or sadder— than the average person ?   Why ?   ",
+            "When was the last time you thought you might die ?   What made you feel that way ?   ",
+            "Am I friends with anyoneyou can’ t fully endorse ?  Is there anything you think I should consider about them ?   ",
+            "If you discover you’ ll die today,what will be your biggest regret ?   ",
+            "Your Google history has been made public. Which search is the hardest to explain ?   ",
+            "How are we rightfor each other romantically ?  Certainly you can think of at least one way we’ recompatible. ",
+            "What was your most embarrassing moment that transpired in public ?  Let’ s all relive it!",
+            "What’ s the worst date you’ ve ever been on ?   Tellus all the juicy deets. ",
+            "Have you ever done something you’ re not proud offor money ?  (Outside of an official job. )",
+            "What are you anxiousabout ?   Can we reassureyou ?   ",
+            "If you had to eat onedelectable part of mydelicious body,what part would you choose ?   ",
+            "What’ s my greatest physical asset ?   Don’ tbe shy. ",
+            "What’ s something about your personal hygiene that you could be morerigorous about ?   ",
+            "How often do you think about your own death ?  How, and when,do yoususpect it will happen ?   ",
+            "What’ s something that’ sdefinitely not my problem,but somehow always becomes my problem ?   ",
+            "Tell us about a time you got more wasted thanwas advisable. ",
+            "If you were to kill me,how would you do it ?   ",
+            "What’ s something you’ vealways done— and onlyrealized as an adult thatit was weird ?   ",
+            "What would you never, ever want my help with ?   ",
+            "How would Childhood Youdescribe you now ?   Wouldthat kid like you ?   ",
+            "If we were dying of thirst, how would we rationthe last bottle of waterbetween all of us here ?   ",
+            "Do you think you are more or less attractive than theaverage person ?   Why ?   ",
+            "What’ s an offense you’ ve committed that could get you fired from work ?   ",
+            "How long did it take you toget over your last ex ?   Whatdid you do to get over it ?      Are you actually over it ?   ",
+            "If I killed somebody,would you help me cover it up ?   ",
+            "Tell us about your lastbreakup talk. Who saidwhat ?   Anything you wishyou’ d said ?   ",
+            "What’ s the weirdest wayyou’ ve ever earned money ?  How much did you get ?   ",
+            "What’ s the worstthing you’ ve done ina relationship ?   ",
+            "If we were to meetfor thefirst time today,would webecome friends ?   ",
+            "Was your childhood happierthan the average person’ s ?   ",
+            "Have you ever dated afriend’ s ex ?   Ever wanted to ?   ",
+            "Do you think you’ rehealthier,or more fit, than most people ?   ",
+            "You and I are dating. What’ s going to breakus up ?   ",
+            "What type of person haveyou always wanted to date, but never had the chance ?   ",
+            "What are your insecurities ?  How do they manifest in    your day - to - day life ?   ",
+            "Have you ever had a pregnancy scare ?   ",
+            "Write me a new datingapp bio in three sentences or less. ",
+            "Have you ever been inlove ?   How do you know ?   ",
+            "Will we be friends in ten years ?   ",
+            "Is there something that’ s difficult to talk about amongst any of us here ?  Should we clear the air right now ?   ",
+            "How are we wrong for each other romantically ?   ",
+            "What did you get in major trouble for doing as a kid, and did you ever learnyour lesson ?   ",
+            "What album title describesour relationship ?   What isour soundtrack ?   ",
+            "Our minds have tradedbodies. What’ s the firstthing you’ re going to do    inmy body ?   ",
+            "Tell us about a secret youhad to keep from yourloved ones. ",
+            "Describe me in three words. ",
+            "When was the last time youcried ?   What happened ?   Doyou need a hug ?   ",
+            "Do you think I have amore dominant or more submissive personality ?   Doyou have any examples ?   ",
+            "How comfortable are we with one another ?   What things would make usuncomfortable ?   ",
+            "Do you think I care moreor less about my reputationthan most people ?   ",
+            "Have you ever had adiscovery about yourparents now that you’ vegrown up ?   ",
+            "What is your worst copingmechanism ?   Defensemechanism ?   ",
+            "What’ s the meanest thingyou’ ve seen me do ?  ",
+            "Is there a limit to whatyou would do    for the right amount of money ?   ",
+            "Do you think you’ re more prone to addiction thanother people ?   Either way, how do you know ?   ",
+            "Describe my perfect life partner. Have I been onthe right track to find thisperson ?   ",
+            "Have you broken any bones ?  What happened ?   Did youhear the crack ?   ",
+            "What’ s a time when you let    a problem go onfor too long before you addressed it ?   ",
+            "When was the last time you spoke to an ex ?   What was it about ?   Was there any tension ?   ",
+            "If I were a chain restaurant, which one would I be andwhy ?   ",
+            "Have you ever talked about me behind my back ?   If yes, what did you say ?   ",
+            "If someone offered you $10,000 to never talk tome again,would you ?   ",
+            "Someone who’ s never met me asks you what I’ m like. How do you answer ?   ",
+            "What’ s something you think people should never joke about ?   ",
+            "Tell us about the one thatgot away. ",
+            "When was the last time you lost your cool ?   Whathappened ?   How do you feel about it now ?   ",
+            "What’ s something you’ restill self - conscious about ?  Are you working on it ?   ",
+            "If you found out I’ d been embezzling from work, would you rat me out ?   ",
+            "Assuming you were single, what would it takefor youto get back together with your last ex ?   ",
+            "Have I ever told you a secret that you’ velet slip to a third party ?   "
+        ];
+
+        /**
+         * 
+         * Draw new card
+         * 
+         */
+        function drawCard() {
+            console.log('card drawn');
+        }
+
+        $(document).ready(function () {                
+
+            $('#drawButton').click(function () {
+
+                $('#questionText').text(onTheRocks[Math.floor(Math.random() * onTheRocks.length)]);
+                });
+            });
+    </script>
+
+
+
+</body>
