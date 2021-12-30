@@ -1,0 +1,135 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+
+
+    <title>Lay all on the line💣</title>
+
+</head>
+
+<body style="background-image: linear-gradient(rgb(42, 0, 60), rgb(247, 146, 57));">
+
+    <div class="card text-center" style="margin: 3rem; background-color: rgb(246, 178, 197);">
+        <div class="card-header display-1">
+            💣
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">LAST CALL</h5>
+
+            <p style="padding: 4rem;" class="fs-1" id="questionText">???</p>
+        </div>
+
+        <input id="drawButton" class="btn btn-primary text-center" type="button" value="DRAW"
+            style="background-color: rgb(244, 49, 147) ;margin: 3rem;" />
+
+    </div>
+
+
+
+
+    <script>
+        var drawButton = document.getElementById("questionText").innerText;
+
+
+        const lastCall = [
+            "Does our relationship bring out the best in you? In me? If not, why?",
+            "What’s something you resent about me?",
+            "Describe a time you lost a little bit of respect for me.",
+            "Describe three ways to improve my physical appearance and general attractiveness. ",
+            "What percentage of the time do you think I’m completely full of shit? ",
+            "Do you even remotely care what I think of you? ",
+            "If someone was interested in dating me, what thing about me would you tell them to change their mind? ",
+            "What have I ruined for you? ",
+            "What problem do I think I’m successfully hiding from everyone, but is actually completely obvious? ",
+            "Do you see us as equals? ",
+            "Do you think I’m good parent material?",
+            "What thing do I love that you absolutely hate? ",
+            "What negative thing have I said about you that’s haunted you forever?",
+            "What one change could I make that would vastly improve who I am as a person? TOD-Deck5-LC-2019.05_DM_v2.indd 14 5/28/19 3:02 PM ",
+            "What do you wish I’d just shut up about? Do I often seem like I’m being fake?",
+            "What ethical boundaries are you happy to cross? Am I too picky? Too petty? Too selfish? ",
+            "Have you ever considered ending our relationship? Why?",
+            "What’s the most amount of money you would lend me?",
+            "Do you ever think I need to cut back on drinking or drugs?",
+            "What’s the most needlessly mean thing you’ve ever heard me say about someone else? ",
+            "Have I ever done anything you think should have gotten me shitcanned? Are there certain situations with me you avoid on purpose?",
+            "What’s the most egregious lie you’ve ever told me?",
+            "Do you think I’m too clingy or demand too much attention?",
+            "What personal demon are you in denial of?",
+            "Do you think I’m continuing to grow, or is this the best I’ll ever be as a person?",
+            "Are you sometimes embarrassed to be seen with me? Why? ",
+            "What do I never seem to understand about you?",
+            "Do you think I have overachieved or underachieved?",
+            "What will you never understand about me?",
+            "What advice do I need but don’t want to hear? Do you think I’m capable of doing something you could never forgive me for?",
+            "Name one thing I do that disgusts you. How have I disappointed you?",
+            "Have you ever hurt someone on purpose?",
+            "What do you think I need to just let go of? ",
+            "Name a time you wished we weren’t friends.",
+            "Who’s someone we know that you wish I was more like and why? ",
+            "Do you ever feel like I’m holding you back? If I was in a relationship with someone you hated, would you tell me?   ",
+            "Is there anything about me that creeps you out? Would you hire me? Deck5-LC-2019.05_DM_v2.indd 28 5/28/19 3:02 PM ",
+            "Do you have any secrets you keep from me and me only? Is there an expiration date on our relationship?",
+            "What do I think I’m great at, but am actually terrible at? Have you ever been genuinely scared of me?",
+            "What’s the most serious crime you’ve ever committed?",
+            "What is (or would be) the worst thing about having me as a travel companion?",
+            "Have I often struck you as immature or unable to take care of myself? Do you think I sometimes takes advantage of other people? TOD-Deck5-LC-2019.05_DM_v2.indd 30 LAST CAL L 5/28/19 3: ",
+            "What’s the worst thought you’ve ever had that you’ve never shared with anyone? Do you think I’m a bully? TOD-Deck5-LC-2019.05_DM_v2.indd 33 5/28/19 3:LAST CALL  ",
+            "What’s the bitchiest thing you’ve ever said about me behind my back? Name a time you could have helped someone, but didn’t bother. ",
+            "What’s the most selfish thing you’ve ever done?",
+            "What’s stupidest thing you’ve ever heard me say?",
+            "What’s an offensive opinion you will never let go of?",
+            "Do you think you’re better than me?",
+            "If you do something you know is wrong, but don’t get caught, do you keep doing it?",
+            "What’s the longest period of time you could spend with me before never wanting to see me again? ",
+            "Have you ever stolen anything from me?",
+            "What’s the weirdest thing about me?  ",
+            "Do you sometimes lie about being busy if you don’t want to deal with me? Would you trust me alone with your kids for more than a couple hours?  ",
+            "Do you ever warn people about me before they meet me? Do you ever have to fake empathy? ",
+            "If I died tomorrow, what regrets would you have about our relationship? Have you ever knowingly let me embarrass myself, even if you could have stopped it? ",
+            "Have you ever ghosted someone you were close with ?",
+            "What’s the most annoying thing I do without realizing it?   ",
+            "What am I the most ignorant about? Do you ever think I stir up drama because I enjoy it? ",
+            "What’s something you know would make you a better person, but you just don’t want to do it? Have you ever stabbed someone in the back or actively plotted against them? ",
+            "Is this the best I’ve looked since you’ve known me?",
+            "What’s the worst thing you’ve ever done to an animal? ",
+            "How have I changed for the worse since we’ve met?",
+            "What’s the most unreasonable thing you’ve ever completely lost your shit over?",
+            "What’s the most terrible thing you’ve ever done for money? How have you dishonored your parents? ",
+            "Have you ever intentionally scammed someone or misled them for personal gain? If someone important to you said they’d stop seeing you unless you stopped seeing me, would you?",
+            "Name a time you thought I was weak.",
+            "When was the last time you were out of control?",
+            "In what ways have you used me? Have you ever had to apologize to someone for my behavior?",
+            "When have you let your pride get in the way of doing the right thing? Have you ever forced someone to do something against their will?",
+            "Have you ever pretended to be someone else on the internet? Would your life be any worse if we had never met? ",
+            "Have you ever lied on a resume?",
+            "What have you done while intoxicated that you wish you could take back? ",
+            "What’s the angriest you’ve ever been at me? If we lived across the country from each other, do you think we’d lose touch?"
+        ];
+
+        /**
+         * 
+         * Draw new card
+         * 
+         */
+        function drawCard() {
+            console.log('card drawn');
+        }
+
+        $(document).ready(function () {
+
+            $('#drawButton').click(function () {
+
+                $('#questionText').text(lastCall[Math.floor(Math.random() * lastCall.length)]);
+            });
+        });
+    </script>
+
+</body>
