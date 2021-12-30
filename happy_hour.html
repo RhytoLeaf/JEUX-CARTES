@@ -1,0 +1,153 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+
+
+    <title>Happy Time🎉</title>
+
+</head>
+
+<body style="background-image: linear-gradient(rgb(255, 143, 143), rgb(255, 106, 0));">
+
+    <div class="card text-center" style="margin: 3rem; background-color: rgb(246, 178, 197);">
+        <div class="card-header display-1">
+            🎉
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">HAPPY HOUR</h5>
+
+            <p style="padding: 4rem;" class="fs-1" id="questionText">???</p>
+        </div>
+
+        <input id="drawButton" class="btn btn-primary text-center" type="button" value="DRAW"
+            style="background-color: red ;margin: 3rem;" />
+
+    </div>
+
+
+
+
+    <script>
+        var drawButton = document.getElementById("questionText").innerText;
+
+
+        const happyHour = [
+            "What’s the best zinger you’ ve ever come up with on the fly ? I know you remember it.",
+            "What are the farthest lengths you’ ve gone to cheer someone up ?",
+            "What is your ideal namefor a dog ? A cat ? Now pickany non - traditional pet andname it.",
+            "What movie or TV character do I most remind you of ?",
+            "What song are you most ashamed to admit to me that you love ? Reply in song.",
+            "With what hilarious storyabout me do you regalepeople I do not know ? ",
+            "What’ s the the mostcourageous thing you’ veever accomplished ? ",
+            "Aside from“ moist”, whatword can’ t you stand thesound of ? ",
+            "Am I better or worse off whenI am caffeinated ? ",
+            "Name a dream of yours thatyou’ ve made come true.",
+            "What is your happiest memory from when you were a single - digit - aged child ? ",
+            "When’ s the exact momentyou knew we were on thesame wavelength ? ",
+            "What’ s a situation that isalways improved by mypresence ? ",
+            "If you had synesthesia, whatcolor would I make you feel ? ",
+            "Who would play me in theOscar - winning film aboutmy life ? ",
+            "How have I helped youthe most ? ",
+            "Do youtry to always behonest with me, or do youtell me“ that haircut looksgreat” - level white lies tobe nice ? ",
+            "What’ s the most consideratepresent you’ ve everreceived ? Given ? ",
+            "If dogs and their owners aresupposed to have matchingpersonalities, what type ofdog should I get ? ",
+            "What’ s the title of yourautobiography ? Extraimaginary pointsif itincludes a colon anda subtitle.",
+            "What’ s your favorite memory of our relationship ? ",
+            "What snack do you find themost comfort in consuming ? ",
+            "If you could have any bodypart of mine(    for aesthetic,    not medical, reasons), whatwould it be ? ",
+            "What is something you loveabout me that other peopledon’ t understand at all ? ",
+            "If you could plan the perfectnight with all of your friends,what would it entail ? ",
+            "What movie or TV quote hitsa little too close to home ? ",
+            "Would you give me one ofyour kidneys ? ",
+            "What positive impact do you think you have onother people ? ",
+            "What would you entrust mewith above anyoneelse ?",
+            "What board game are youpositive you could destroyus all at ? ",
+            "What’ s something I’ m selfconsciousabout that youthink I should stop stressingout over ? ",
+            "Describe the dream vacationyou haven’ t gotten to take.Then tell me how you canmake it happen in five yearsor less.",
+            "What’ s your ultimate Sundaylook like ? Your ultimatesundae ? ",
+            "What dish do you slay in    the kitchen every time youmake it ? ",
+            "What are you rootingfor me to achieve ? ",
+            "What author’ s body ofwork do you wish you wereactually responsiblefor ? ",
+            "If there were no barriers toentry, what job do you thinkyou’ d be amazing at ? ",
+            "If you could instantly gainany skill, what would it be ? ",
+            "Out of all of us, whose eyeswould you like to see theworld throughfor a day ?",
+            "We’re binging tonight!Pick the show and the snack.",
+            "What song reminds you ofme whenever you hear it ? ",
+            "Would you ever see a band in concert that you hated just to make me happy ?",
+            "When do you think you peaked ? ",
+            "On what topic could you bean expert TV talking head ?",
+            "Show me the funniestthing on the internetunder 30 seconds long.If I laugh, I drink.",
+            "If I were a perfume orcologne, what would my top,heart, and base notes be ?",
+            "Do you ever justlet me win ? ",
+            "What best represents me as afriend : a weighted blanket, aspin class, or a wine tasting ? ",
+            "We’ re starting a business.What venture would we bemost successful at as a pair ? ",
+            "What’ s the most kickassyou’ ve ever felt ? ",
+            "If we formed a gang,what would the name of our posse be ? ",
+            "What’ s the most fun you’ veever had with strangers ? ",
+            "Tell us the story.",
+            "What do you wish you wereas good at as me ? ",
+            "What is something you knowyou’ ll accomplish, no matterhow many people tell youyou can’ t ? ",
+            "If someone did me wrong,would you(a) comfort me,(b) distract me, or(c) getrevengefor me ? ",
+            "What makes you so much fun ? ",
+            "If you could live anyoneelse’s life, whose would it be ? ",
+            "Describe an act of pettyprotest you waged at workor school.",
+            "What’ s one thing you canstart doing to put morebeauty back into the world ? ",
+            "What’ s something thatcompletely changed youwhen you encountered itfor the first time ? ",
+            "Do you ever pity - laugh at myjokes, evenif you don’ t think they’re funny ? ",
+            "How many seconds is theideal hug ? Should we all testyour hypothesis ? ",
+            "What is the most comfortingsound in the world ? ",
+            "What discontinued itemwould you give anythingto bring back ? ",
+            "Would you trust meto pierce your ear,80’ s - sleepover style ? ",
+            "I’ m going to have permanentart deposited into my skinwith needles.Pick a designfor me",
+            "What’ s the biggest fearyou’ ve overcome ? ",
+            "What smell takes you backto childhood ? ",
+            "Do you brag about me toother people ? What do you say ? ",
+            "You suddenly becomewealthy beyond the dreams of avarice. What do you do with the rest of your life ? ",
+            "What’s the weirdestcompliment you’ ve evergotten ? ",
+            "What would be your cheesy,20 - second, game - showcontestantanecdote ? ",
+            "If I couldn’ t reach an itch,would you do me a solidand scratch it ? ",
+            "What’ s guaranteed to hityou right in the feels ? ",
+            "If you were a Care Bear,what would be on your belly ? ",
+            "What’ s the hold musicfor your brain ? ",
+            "Liking what piece of popculture gets someone yourautomatic stamp of approval ? ",
+            "What’ s the strangestnickname you’ ve everbeen given ? ",
+            "Of all the things we do together, what is the best thing we do together ? ",
+            "We’re road tripping throughthe middle of nowhere.Do you have me drive ornavigate ? ",
+            "What was your firstimpression of me ? Has itturned out to be thecase ?",
+            "You get to travel back in timeto warn me about one thing.What would it be ? ",
+            "If we were flying somewheretogether, whowould volunteer to sit in the middle seat ? ",
+            "What did you think youwould hate, but ended uploving ? ",
+            "What album have you spunthe most times ? Be honest.You can consult your music apps for verification.",
+            "Who here is most likely tobelieve in supernatural,occult, or mystical stuff ? ",
+            "Tell me about a disagreementwe had— and how weresolved it.Has it made us stronger ? ",
+            "What is your greatest style related regret as an adult ? Have you glo’ d up since ?"
+
+
+        ];
+
+        /**
+         * 
+         * Draw new card
+         * 
+         */
+        function drawCard() {
+            console.log('card drawn');
+        }
+
+        $(document).ready(function () {
+
+            $('#drawButton').click(function () {
+
+                $('#questionText').text(happyHour[Math.floor(Math.random() * happyHour.length)]);
+            });
+        });
+    </script>
+
+</body>
